@@ -38,7 +38,7 @@ Basic toolbar configuration example:
     "click": "firefox-esr"
   }
 }
-```json
+```
 
 ## Dynamic wallpaper configuration
 
