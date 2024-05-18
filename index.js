@@ -19,6 +19,10 @@ app.on("ready", () => {
     frame: false,
     autoHideMenuBar: true,
     focusable: false,
+    webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false,
+     }
   });
   win.loadFile("desktop/index.html");
 });

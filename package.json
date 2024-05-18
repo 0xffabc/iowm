@@ -3,6 +3,7 @@
     "electron": "^30.0.6"
   },
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "debug": "electron debug"
   }
 }
