@@ -4,13 +4,13 @@ Works as repalcement for explorer.exe on windows and a window manager on linux (
 
 ## Installation
 
-- Clone the github repository, download it and put somewhere on the drive.
+- Clone the [github repository](https://github.com/0xffabc/iowm), download it and put somewhere on the drive. help: [Github docs](https://docs.github.com/repositories/creating-and-managing-repositories/cloning-a-repository)
 - Install [node.js](https://nodejs.org)
 - Go to the root folder of project and run this sequence of commands:
   ```bash
     npm install # Installs requirements for the project (electron and etc.)
   ```
-- Create a startup script that launches `npm run debug` or `npm run start` in the root folder of project
+- Create a startup script that launches `npm run debug` or `npm run start` in the root folder of project. help: [Windows](https://support.microsoft.com/en-us/windows/pin-apps-and-folders-to-the-desktop-or-taskbar-f3c749fb-e298-4cf1-adda-7fd635df6bb0) [Linux](<https://unix.stackexchange.com/questions/84686/how-to-create-custom-commands-in-unix-linux>)
 
 ## Debug vs Start
 
