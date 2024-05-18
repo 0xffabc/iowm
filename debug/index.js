@@ -2,9 +2,7 @@ const { BrowserWindow, app } = require("electron");
 
 app.on("ready", () => {
   const win = new BrowserWindow({
-    /** The most common screen dimension **/
-    width: 1920 * 0.9,
-    height: 1080 * 0.9,
+    fullscreen: true,
     nodeIntegration: true,
     webSecurity: false,
     contextIsolation: false,
