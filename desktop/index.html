@@ -75,10 +75,10 @@ function changeWallpaper() {
 };
 
 function update() {
+  const currentTime = new Date;
   navigator.getBattery().then(event => {
     battery.innerHTML = `Level: ${event.level}%, ${event.charging ? "charging" : "idle"}`;
   });
-  const currentTime = new Date;
   time.innerHTML = `${currentTime.getHours()}:${currentTime.getMinutes()}:${currentTime.getSeconds()}`;
 }
 
