@@ -1,5 +1,4 @@
 const { BrowserWindow, app } = require("electron");
-require("@electron/remote/main").initialize();
 
 app.on("ready", () => {
   const win = new BrowserWindow({
@@ -19,6 +18,5 @@ app.on("ready", () => {
         contextIsolation: false,
      }
   });
-  require("@electron/remote/main").enable(win.webContents);
   win.loadFile("../desktop/index.html");
 });
