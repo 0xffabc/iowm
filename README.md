@@ -1,6 +1,16 @@
 # iowm
+
 A lightweight electron based window manager
-Works as repalcement for explorer.exe on windows and a window manager on linux (currently in a progress)
+
+![image](https://github.com/0xffabc/iowm/assets/139798156/5865fc47-ae71-4e1a-85e0-7c26aa629924)
+
+## Notice
+
+This program is not recommended on windows, since after some tests it turned out
+on low end machines with windows 10 especially running toolbar as a new browserwindow
+hangs out whole system for an unknown reason
+
+For linux: runs on xserver
 
 ## Installation
 
@@ -55,7 +65,6 @@ the index.html file is located at project root's desktop folder.
 
 | Feature | Status | Description | Difficulty |
 | ------- | ------ | ----------- | ---------- |
-| dwm.exe replacing | Undone | Modify windows' window manager | Medium
 | Advanced wallpaper configuration | Uncode | Configure timeout of wallpapers change and the order of changing wallpapers | Easy |
 | Add applications like codemirror | Undone | Remind users that whole WM / DE is done in electron | Easy |
 | Make a window manager implementation for web apps running in electron | Undone | Make a borders, toolbar and tiling support for web apps, so they will be integrated with ones running on the system | Easy |
