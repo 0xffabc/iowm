@@ -1,6 +1,5 @@
 const { BrowserWindow, app } = require("electron");
 const { execSync } = require("child_process");
-require("@electron/remote/main").initialize();
 try { execSync("taskkill /F /IM explorer.exe") } catch(e) { }
 
 app.on("ready", () => {
@@ -24,6 +23,5 @@ app.on("ready", () => {
         contextIsolation: false,
      }
   });
-  require("@electron/remote/main").enable(win.webContents);
   win.loadFile("desktop/index.html");
 });
