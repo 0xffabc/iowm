@@ -68,4 +68,12 @@ the index.html file is located at project root's desktop folder.
 | ------- | ------ | ----------- | ---------- |
 | Advanced wallpaper configuration | Uncode | Configure timeout of wallpapers change and the order of changing wallpapers | Easy |
 | Add applications like codemirror | Undone | Remind users that whole WM / DE is done in electron | Easy |
-| Make a window manager implementation for web apps running in electron | Undone | Make a borders, toolbar and tiling support for web apps, so they will be integrated with ones running on the system | Easy |
+| Make an actual window manager | Undone | Make borders, toolbar and tiling support for web apps, so they will be integrated with ones running on the system | Easy |
+
+## Contributors
+
+none
+
+## License
+
+
