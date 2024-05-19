@@ -1,40 +1,39 @@
-
 <img id = "wp" src = "../wallpaper/default.jpg" style = "width: 100%; height: 100%; position: fixed; top: 0; left: 0; user-select: none; pointer-events: none">
 <style>
 * {
   user-select: none;
 }
 .navbar {
-	background: rgba(50, 50, 50, 0.25);
-        border-radius: 20px;
-	backdrop-filter: blur(5px);
-	color: rgb(200, 200, 200);
-	width: 100%;
-	height: 35px;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	z-index: 99999;
+  background: rgba(50, 50, 50, 0.15);
+  backdrop-filter: blur(2.5px);
+  color: rgb(200, 200, 200);
+  width: 100%;
+  height: 35px;
+  text-align: center; 
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
 }
 	
 .bar {
-	background: rgba(50, 50, 50, 0.25);
-	backdrop-filter: blur(5px);
-	color: rgb(200, 200, 200);
-	width: 100%;
-	height: 35px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 99999;
+  background: rgba(50, 50, 50, 0.15);
+  backdrop-filter: blur(2.5px);
+  color: rgb(200, 200, 200);
+  width: 100%;
+  height: 35px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
 }
 
 span:hover {
-	color: white;
-	scale: 1.05;
+  color: white;
+  scale: 1.05;
 }
 span {
-	transition: all 0.1s;
+  transition: all 0.1s;
 }
 </style>
 
@@ -51,21 +50,21 @@ span {
 <div class = "navbar" id = "navbar"> </div>
 
 <script>
+const fs = require("fs");
 const time = document.querySelector("#time");
 const battery = document.querySelector("#battery");
 const navbar = document.querySelector("#navbar");
-const shortcuts = JSON.parse(fs.readFileSync("apps.json"));
-const fs = require("fs");
 
 function makeToolbar() {
   if (!fs.existsSync("apps.json")) fs.writeFileSync("apps.json", "{}");
+  const shortcuts = JSON.parse(fs.readFileSync("apps.json"));
 
   Object.keys(shortcuts).forEach(appName => {
     const app = shortcuts[appName];
-    navbar.innerHTML += `<img src="${app.icon}" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 20px">`;
+    navbar.innerHTML += `<img qapp src="${app.icon}" style="width: 32px; height: 32px; vertical-align: middle; text-align: center; margin-right: 20px">`;
   });
   Object.keys(shortcuts).forEach((e, index) => 
-    [...document.querySelectorAll("img")][index].onclick = () => (require("child_process")).exec(shortcuts[e].click));
+    document.querySelectorAll("img[qapp]")[index].onclick = () => (require("child_process")).exec(shortcuts[e].click));
 }
 function changeWallpaper() {
   const wp = document.querySelector("#wp");

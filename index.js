@@ -1,7 +1,11 @@
 const { BrowserWindow, app } = require("electron");
 
+app.on("window-all-closed", () => {
+  app.quit();
+});
+
 app.on("ready", () => {
-  const win = new BrowserWindow({
+  let win = new BrowserWindow({
     fullscreen: true,
     nodeIntegration: true,
     webSecurity: false,
@@ -20,6 +24,9 @@ app.on("ready", () => {
         nodeIntegration: true,
         contextIsolation: false,
      }
+  });
+  win.on("closed", () => {
+    win = null;
   });
   win.loadFile("desktop/index.html");
 });
