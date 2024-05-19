@@ -2,6 +2,8 @@
 
 A lightweight electron based window manager written in javascript.
 
+[!stars](https://img.shields.io/github/stars/0xffabc/iowm) [!watchers](https://img.shields.io/github/watchers/0xffabc/iowm) [!forks](https://img.shields.io/github/forks/0xffabc/iowm)
+
 ![image](https://github.com/0xffabc/iowm/assets/139798156/5865fc47-ae71-4e1a-85e0-7c26aa629924)
 
 ## Notice
