@@ -1,6 +1,4 @@
 const { BrowserWindow, app } = require("electron");
-const { execSync } = require("child_process");
-try { execSync("taskkill /F /IM explorer.exe") } catch(e) { }
 
 app.on("ready", () => {
   const win = new BrowserWindow({
