@@ -37,47 +37,55 @@ span {
 </div>
 
 <script>
-               function changeWallpaper() {
-               	const wp = document.querySelector("#wp");
-
-               	const backgrounds = fs.readdirSync("./wallpaper/wp");
-           	   	const randomIndex = Math.floor(Math.random() * backgrounds.length);
-		const background = backgrounds[randomIndex];
-               	wp.src = "../wallpaper/wp/" + background;
-               }
+const time = document.querySelector("#time");
+const battery = document.querySelector("#battery");
+	
+function loadToolbar() {
 	const fs = require("fs");
-	const { BrowserWindow } = require("@electron/remote");
-               const win = new BrowserWindow({
-  	 width: 1920,
-	 height: 35,
-   	 webSecurity: false,
-   	 allowRunningInsecureContent: true,
-    	 minimizable: false,
-   	 skipTaskbar: true,
-  	 frame: false,
-                alwaysOnTop: true,
-  	 autoHideMenuBar: true,
-  	 webPreferences: {
-    	   nodeIntegration: true,
-     	   contextIsolation: false,
-   	  }
- 	});
-	win.setBounds({ x: 0, y: screen.height - 35 });
-	win.loadFile("../desktop/toolbar.html");
+  const { BrowserWindow } = require("@electron/remote");
+  const win = new BrowserWindow({
+    width: 1920,
+    height: 35,
+    webSecurity: false,
+    allowRunningInsecureContent: true,
+    minimizable: false,
+    skipTaskbar: true,
+    frame: false,
+    alwaysOnTop: true,
+    autoHideMenuBar: true,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    }
+  });
+  win.setBounds({
+    x: 0,
+    y: screen.height - 35
+  });
+  win.loadFile("../desktop/toolbar.html");
+}
+	
+function changeWallpaper() {
+  const wp = document.querySelector("#wp");
 
-	const time = document.querySelector("#time");
-	const battery = document.querySelector("#battery");
+  const backgrounds = fs.readdirSync("./wallpaper/wp");
+  const randomIndex = Math.floor(Math.random() * backgrounds.length);
+  const background = backgrounds[randomIndex];
+  wp.src = `../wallpaper/wp/${background}`;
+};
 
-               changeWallpaper();
-               setInterval(changeWallpaper, 90000);
+function update() {
+  navigator.getBattery().then(event => {
+    battery.innerHTML = `Level: ${event.level}%, ${event.charging ? "charging" : "idle"}`;
+  });
+  const currentTime = new Date;
+  time.innerHTML = `${currentTime.getHours()}:${currentTime.getMinutes()}:${currentTime.getSeconds()}`;
+}
 
-	function update() {
-		navigator.getBattery().then(event => {
-			battery.innerHTML = `Level: ${event.level}%, ${event.charging ? "charging" : "idle"}`;
-		});
-		const currentTime = new Date();
-		time.innerHTML = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
-	}
+if (typeof module !== "undefined" && module.exports) 
+  loadToolbar();
 
-	setInterval(update, 1000);
+changeWallpaper();
+setInterval(changeWallpaper, 90000);
+setInterval(update, 1000);
 </script>
