@@ -7,25 +7,12 @@
 
 .bar {
 	background: rgba(50, 50, 50, 0.25);
-               border-radius: 20px;
 	backdrop-filter: blur(5px);
 	color: rgb(200, 200, 200);
 	width: 100%;
 	height: 35px;
 	position: fixed;
 	top: 0;
-	left: 0;
-	z-index: 99999;
-}
-.navbar {
-	background: rgba(50, 50, 50, 0.25);
-               border-radius: 20px;
-	backdrop-filter: blur(5px);
-	color: rgb(200, 200, 200);
-	width: 100%;
-	height: 35px;
-	position: fixed;
-	bottom: 0;
 	left: 0;
 	z-index: 99999;
 }
@@ -40,14 +27,13 @@ span {
 </style>
 
 <div class = "bar">
-  <span id = "toolbar" style = "vertical-align: middle; text-align: center; position: absolute; top: 5px; left: 20px; font-family: Helvetica; font-size: 20px"> 
-    Iodm - Workspace
+  <span id = "toolbar" style = "vertical-align: middle; text-align: center; position: absolute; top: 5px; left: 20px; font-family: monospace; font-size: 20px"> 
+    wait what
   </span>
-  <span id = "time" style = "vertical-align: middle; text-align: center; position: absolute; top: 5px; right: 20px; font-family: Helvetica; font-size: 20px"> Fetching current time... </span>
-</div>
-
-<div class = "navbar" id = "navbar" style = "font-family: Arial; font-weight: bold; text-align: center; vertical-align: middle;">
-  
+  <span id = "time" style = "vertical-align: middle; text-align: center; position: absolute; top: 5px; right: 20px; font-family: monospace; font-size: 20px"> Fetching current time... </span>
+  <span id = "battery" style = "vertical-align: middle; text-align: center; font-family: monospace; font-size: 20px; position: absolute; top: 4px; left: 45%">
+    Fetching battery level...
+  </span>
 </div>
 
 <script>
@@ -60,27 +46,37 @@ span {
                	wp.src = "../wallpaper/wp/" + background;
                }
 	const fs = require("fs");
-
-               if (!fs.existsSync("apps.json")) fs.writeFileSync("apps.json", "{}");
+	const { BrowserWindow } = require("@electron/remote");
+               const win = new BrowserWindow({
+  	 width: 1920,
+	 height: 35,
+   	 webSecurity: false,
+   	 allowRunningInsecureContent: true,
+    	 minimizable: false,
+   	 skipTaskbar: true,
+  	 frame: false,
+                alwaysOnTop: true,
+  	 autoHideMenuBar: true,
+  	 webPreferences: {
+    	   nodeIntegration: true,
+     	   contextIsolation: false,
+   	  }
+ 	});
+	win.setBounds({ x: 0, y: screen.height - 35 });
+	win.loadFile("../desktop/toolbar.html");
 
 	const time = document.querySelector("#time");
-               const navbar = document.querySelector("#navbar");
+	const battery = document.querySelector("#battery");
 
                changeWallpaper();
                setInterval(changeWallpaper, 90000);
 
 	function update() {
+		navigator.getBattery().then(event => {
+			battery.innerHTML = `Level: ${event.level}%, ${event.charging ? "charging" : "idle"}`;
+		});
 		const currentTime = new Date();
-		const shortcuts = JSON.parse(fs.readFileSync("apps.json"));
-                              console.log(shortcuts);
 		time.innerHTML = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
-                              navbar.innerHTML = "";
-                              Object.keys(shortcuts).forEach(appName => {
-                                  const app = shortcuts[appName];
-                                  navbar.innerHTML += `<span alter = "${appName}"><img src="${app.icon}" style="width: 32px; height: 32px; text-align: center; vertical-align: middle">${appName} </span>`;
-                              });
-                              Object.keys(shortcuts).forEach(e => 
-                                  document.querySelector("*[alter=\"" + e + "\"]").onclick = () => (require("child_process")).exec(shortcuts[e].click));
 	}
 
 	setInterval(update, 1000);
