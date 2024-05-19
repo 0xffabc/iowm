@@ -6,11 +6,12 @@ A lightweight electron based window manager
 
 ## Notice
 
-This program is not recommended on windows, since after some tests it turned out
-on low end machines with windows 10 especially running toolbar as a new browserwindow
-hangs out whole system for an unknown reason
+This program runs kind of good on windows, since it's all done in electron.
+it's recommended to compile the DE with electron builder for your system 
+As on my tests the DE was more lightweight that explorer.exe
+Since the DE has a taskbar replacement, you will have to add `taskkill /F /IM explorer.exe` in your startup script
 
-For linux: runs on xserver
+For linux (main) case: the DE simply runs on xserver
 
 ## Installation
 
