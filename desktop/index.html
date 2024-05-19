@@ -36,35 +36,25 @@ span {
   </span>
 </div>
 
+<div class = "navbar" id = "navbar" style = "font-family: monospace; font-weight: slim; text-align: center; vertical-align: middle; position: fixed; bottom: 0; left: 0;"> </div>
+
 <script>
 const time = document.querySelector("#time");
 const battery = document.querySelector("#battery");
-	
-function loadToolbar() {
-  const fs = require("fs");
-  const { BrowserWindow } = require("@electron/remote");
-  const win = new BrowserWindow({
-    width: 1920,
-    height: 35,
-    webSecurity: false,
-    allowRunningInsecureContent: true,
-    minimizable: false,
-    skipTaskbar: true,
-    frame: false,
-    alwaysOnTop: true,
-    autoHideMenuBar: true,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-    }
+const navbar = document.querySelector("#navbar");
+const shortcuts = JSON.parse(fs.readFileSync("apps.json"));
+const fs = require("fs");
+
+function makeToolbar() {
+  if (!fs.existsSync("apps.json")) fs.writeFileSync("apps.json", "{}");
+
+  Object.keys(shortcuts).forEach(appName => {
+    const app = shortcuts[appName];
+    navbar.innerHTML += `<img src="${app.icon}" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 20px">`;
   });
-  win.setBounds({
-    x: 0,
-    y: screen.height - 35
-  });
-  win.loadFile("../desktop/toolbar.html");
+  Object.keys(shortcuts).forEach((e, index) => 
+    [...document.querySelectorAll("img")][index].onclick = () => (require("child_process")).exec(shortcuts[e].click));
 }
-	
 function changeWallpaper() {
   const wp = document.querySelector("#wp");
 
@@ -82,10 +72,8 @@ function update() {
   time.innerHTML = `${currentTime.getHours()}:${currentTime.getMinutes()}:${currentTime.getSeconds()}`;
 }
 
-if (typeof module !== "undefined" && module.exports) 
-  loadToolbar();
-
 changeWallpaper();
+makeToolbar();
 setInterval(changeWallpaper, 90000);
 setInterval(update, 1000);
 </script>
