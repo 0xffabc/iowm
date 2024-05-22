@@ -5,7 +5,8 @@ A lightweight electron based window manager written in javascript.
 ![stars](https://img.shields.io/github/stars/0xffabc/iowm) ![watchers](https://img.shields.io/github/watchers/0xffabc/iowm) ![forks](https://img.shields.io/github/forks/0xffabc/iowm)
 
 Default GUI of the desktop
-![image](https://github.com/0xffabc/iowm/assets/139798156/5865fc47-ae71-4e1a-85e0-7c26aa629924)
+
+![image](https://github.com/0xffabc/iowm/assets/139798156/7216d34d-9a4e-4e21-b3fe-3ca99f030d3e)
 ![image](https://github.com/0xffabc/iowm/assets/139798156/70f19774-9e85-439a-9cbe-029f7c6acf7f)
 
 
