@@ -7,7 +7,8 @@ A lightweight electron based window manager written in javascript.
 Default GUI of the desktop
 
 ![image](https://github.com/0xffabc/iowm/assets/139798156/7216d34d-9a4e-4e21-b3fe-3ca99f030d3e)
-![image](https://github.com/0xffabc/iowm/assets/139798156/70f19774-9e85-439a-9cbe-029f7c6acf7f)
+![image](https://github.com/0xffabc/iowm/assets/139798156/9c0d3b9a-2476-4af2-bc9b-e8fd6bc6c066)
+
 
 
 ## Notice
