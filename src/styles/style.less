@@ -29,11 +29,11 @@
 }
 
 .basicElement {
-  vertical-align: middle;
-  text-align: center;
   position: absolute;
   font-family: Arial;
   font-size: 20px;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .topToolBar {
@@ -88,18 +88,20 @@ img[qapp]:hover {
   .fixed;
 }
 
-.toolbar {
+#toolbar {
   .basicElement;
   .topToolBar;
-  left: 20px;
+  left: 20px !important;
 }
 
-.time {
+#time {
+  .basicElement;
   .topToolBar;
-  right: 20px;
+  right: 20px !important;
 }
 
-.battery {
+#battery {
+  .basicElement;
   .topToolBar;
-  left: 45%;
+  left: 49% !important;
 }
