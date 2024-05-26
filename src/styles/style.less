@@ -62,26 +62,26 @@
   .setWidgetDefaults;
 }
 
-span:hover {
-  color: white;
-  scale: 1.05;
-}
-
 span {
   transition: all 0.1s;
   mix-blend-mode: plus-lighter;
   font-family: Arial;
   font-size: 20px;
+
+  &:hover {
+    color: white;
+    scale: 1.05;
+  }
 }
 
 img[qapp] {
   transition: all 0.2s;
   filter: brightness(90%);
-}
 
-img[qapp]:hover {
-  filter: brightness(110%);
-  scale: 1.075;
+  &:hover {
+    filter: brightness(110%);
+    scale: 1.075;
+  }
 }
 
 .wallpapers {
