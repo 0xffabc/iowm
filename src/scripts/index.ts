@@ -68,7 +68,7 @@ function updateBattery() {
 
 	const navigatorExtended = navigator as navigatorType;
   navigatorExtended.getBattery().then((event: batteryEventType) => {
-    battery.innerHTML = `Level: ${event.level}%, ${event.charging ? "charging" : "idle"}`;
+    battery.innerHTML = `${event.level.toString()}%`;
   }); 
 }
 

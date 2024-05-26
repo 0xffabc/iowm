@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-		"build": "node scripts/builder.js"
+    "build": "node scripts/builder.js",
+    "packwin": "electron-builder build --win",
+    "pack": "electron-builder build --linux",
+    "clean": "rm -rf node_modules && npm install"
   },
   "repository": {
     "type": "git",
@@ -22,11 +25,12 @@
   },
   "homepage": "https://github.com/0xffabc/iowm#readme",
   "dependencies": {
-    "electron": "^30.0.8",
     "less": "^4.2.0",
     "ts-loader": "^9.5.1"
   },
   "devDependencies": {
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "electron-builder": "^24.13.3",
+    "electron": "^30.0.8"
   }
 }
