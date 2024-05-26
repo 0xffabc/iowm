@@ -1,10 +1,32 @@
 {
-  "dependencies": {
-    "@electron/remote": "^2.1.2",
-    "electron": "^30.0.6"
-  },
+  "name": "iowm",
+  "version": "1.0.0",
+  "description": "A lightweight window manager",
+  "main": "src/index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "debug": "electron debug"
+		"build": "node scripts/builder.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xffabc/iowm.git"
+  },
+  "keywords": [
+    "window"
+  ],
+  "author": "0xffabc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0xffabc/iowm/issues"
+  },
+  "homepage": "https://github.com/0xffabc/iowm#readme",
+  "dependencies": {
+    "electron": "^30.0.8",
+    "less": "^4.2.0",
+    "ts-loader": "^9.5.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
   }
 }

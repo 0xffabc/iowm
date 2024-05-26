@@ -1,0 +1,105 @@
+@main_accent: rgba(50, 50, 50, 0.15);
+@text_accent: rgba(255, 255, 255, 0.5);
+
+.setWidgetDefaults {
+  user-select: none;
+  z-index: 2;
+  color: @text_accent;
+  position: fixed;
+  text-align: center;
+  mix-blend-mode: plus-lighter;
+}
+
+.setBarsDefaults {
+  backdrop-filter: blur(2.5px);
+  width: 100%;
+  height: 35px;
+  background-color: @main_accent;
+  left: 0;
+}
+
+.fixed {
+  width: 100%; 
+  height: 100%; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  pointer-events: none; 
+  z-index: 0;
+}
+
+.basicElement {
+  vertical-align: middle;
+  text-align: center;
+  position: absolute;
+  font-family: Arial;
+  font-size: 20px;
+}
+
+.topToolBar {
+  top: 5px;
+}
+
+.navbar {
+  bottom: 0;
+  .setWidgetDefaults;
+  .setBarsDefaults;
+}
+
+.bar {
+  top: 0;
+  .setWidgetDefaults;
+  .setBarsDefaults
+}
+
+.timeWidget {
+  left: 10%;
+  font-weight: bold;
+  font-size: 30px;
+  font-family: Arial;
+  text-align: center;
+
+  .setWidgetDefaults;
+}
+
+span:hover {
+  color: white;
+  scale: 1.05;
+}
+
+span {
+  transition: all 0.1s;
+  mix-blend-mode: plus-lighter;
+  font-family: Arial;
+  font-size: 20px;
+}
+
+img[qapp] {
+  transition: all 0.2s;
+  filter: brightness(90%);
+}
+
+img[qapp]:hover {
+  filter: brightness(110%);
+  scale: 1.075;
+}
+
+.wallpapers {
+  .fixed;
+}
+
+.toolbar {
+  .basicElement;
+  .topToolBar;
+  left: 20px;
+}
+
+.time {
+  .topToolBar;
+  right: 20px;
+}
+
+.battery {
+  .topToolBar;
+  left: 45%;
+}
