@@ -7,7 +7,7 @@ const config = {
 	target: 'node',
 	devtool: false,
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'src'),
     filename: 'Injection.js'
   },
   module: {
