@@ -1,5 +1,5 @@
-const navigatorType = require("./types/navigator");
-const batteryEventType = require("./types/batteryEvent");
+const navigatorType = require("../types/navigator");
+const batteryEventType = require("../types/batteryEvent");
 const battery = document.querySelector("#battery");
 
 type navigatorType = InstanceType<typeof navigatorType>;

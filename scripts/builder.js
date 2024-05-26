@@ -1,17 +1,13 @@
-const { spawn } = require("child_process");
+const { execSync } = require("child_process");
 const fs = require("fs");
-const conf = {
-  shell: true,
-  stdin: "inherit"
-};
 
 console.log("[*] Compiling typescript files");
 
-spawn("tsc", conf);
+console.log(execSync("tsc").toString());
 
 console.log("[*] Bundling with webpack");
 
-spawn("webpack", conf);
+console.log(execSync("webpack").toString());
 
 console.log("[*] Merging components");
 

@@ -1,9 +1,6 @@
 const fs = require("fs");
 const { exec } = require("child_process");
 
-const days = require("./tools/days");
-const fixTime = require("./tools/timeFormat");
-
 const makeToolbar = require("./tasks/makeToolbar");
 const changeWallpaper = require("./tasks/changeWallpaper");
 const updateTime = require("./tasks/updateTime");

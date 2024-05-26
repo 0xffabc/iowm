@@ -1,4 +1,5 @@
-
+const fixTime = require("../tools/timeFormat");
+const days = require("../tools/days");
 const time = document.querySelector("#time");
 const timeWidget = document.querySelector("#timeWidget");
 
