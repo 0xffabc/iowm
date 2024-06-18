@@ -13,7 +13,6 @@ Default GUI of the desktop
 
 This program runs kind of good on windows, since it's all done in electron.
 it's recommended to compile the DE with electron builder for your system 
-As on my tests the DE was more lightweight that explorer.exe
 Since the DE has a taskbar replacement, you will have to add `taskkill /F /IM explorer.exe` in your startup script
 
 For linux (main) case: the DE simply runs on xserver
@@ -30,9 +29,6 @@ For linux (main) case: the DE simply runs on xserver
 
 ## Building
 
-The window manager is better when it's built for your platform as a binary.
-The first thing you need to do is compiling .ts files to .js and bundling them into one file.
-The script bundler.js already does that.
 ```
 npm run build # Runs tsc and webpack and prepares index.html file
 ```
@@ -48,11 +44,6 @@ npm run pack
 
 After the building process is finished, you will have to create a wallpapers folder and put in it any picture.
 This folder will be used to load wallpapers used by the desktop
-
-## Debug vs Start
-
-This window manager can run in 2 modes - debugging and sthe actual start.
-Debugging mode doesn't kill explorer.exe on windows and doesn't set "focusable" property in electron browserwindow options
 
 ## Adding shortcuts on the toolbar
 
